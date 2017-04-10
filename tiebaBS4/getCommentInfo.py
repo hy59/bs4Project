@@ -48,19 +48,19 @@ class GetTiebaInfo(object):
             tagsli = soup.find_all('li', attrs={'class': ' j_thread_list clearfix'})
             for tag in tagsli:
                 item = Item()
-                item.title = tag.find('a', attrs={'class': 'j_th_tit '}).get_text().strip()
-                item.firstAuthor = tag.find('span', attrs={'class': 'frs-author-name-wrap'}).a.get_text.strip()
-                item.firstTime = tag.find('span', attrs={'title': u'创建时间'.encode('utf8')}).get_text.strip()
-                item.reNum = tag.find('span', attrs={'title': u'回复'.encode('utf8')}).get_text.strip()
-                item.content = tag.find('div', attrs={'class': 'threadlist_abs threadlsdist_abs_onlyline '}).get_text.strip()
+                item.title = tag.find('a', attrs={'class': 'j_th_tit'}).get_text().strip()
+                item.firstAuthor = tag.find('span', attrs={'class': 'frs-author-name-wrap'}).a.get_text().strip()
+                item.firstTime = tag.find('span', attrs={'title': u'创建时间'.encode('utf8')}).get_text().strip()
+                item.reNum = tag.find('span', attrs={'title': u'回复'.encode('utf8')}).get_text().strip()
+                item.content = tag.find('div', attrs={'class': 'threadlist_abs threadlist_abs_onlyline '}).get_text().strip()
                 item.lastAuthor = tag.find('span', attrs={'class': 'tb_icon_author_rely j_replyer'}).a.get_text().strip()
-                item.lastTime = tag.find('span', attrs={'title': u'最后回复时间'.encode('utf8')}).get_text.strip()
+                item.lastTime = tag.find('span', attrs={'title': u'最后回复时间'.encode('utf8')}).get_text().strip()
                 items.append(item)
                 self.log.info(u'获取标题为<<%s>>的项成功 ...' %item.title)
         return items
 
     def pipelines(self, items):
-        fileName = u'百度贴吧_人民的名义'.txt.encode('GBK')
+        fileName = u'百度贴吧_人民的名义.txt'.encode('GBK')
         with open(fileName, 'w') as fp:
             for item in items:
                 fp.write('title:%s \t author:%s \t firstTime:%s \n content:%s \n return:%s \n lastAuthor:%s \t lastTime:%s \n\n\n\n'
