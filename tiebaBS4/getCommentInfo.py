@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 '''
 Created on 2017.04.10
 
@@ -52,7 +52,7 @@ class GetTiebaInfo(object):
                 item.firstAuthor = tag.find('span', attrs={'class': 'frs-author-name-wrap'}).a.get_text.strip()
                 item.firstTime = tag.find('span', attrs={'title': u'创建时间'.encode('utf8')}).get_text.strip()
                 item.reNum = tag.find('span', attrs={'title': u'回复'.encode('utf8')}).get_text.strip()
-                item.content = tag.find('div', attrs={'class': 'threadlist_abs threadlist_abs_onlyline '}).get_text.strip()
+                item.content = tag.find('div', attrs={'class': 'threadlist_abs threadlsdist_abs_onlyline '}).get_text.strip()
                 item.lastAuthor = tag.find('span', attrs={'class': 'tb_icon_author_rely j_replyer'}).a.get_text().strip()
                 item.lastTime = tag.find('span', attrs={'title': u'最后回复时间'.encode('utf8')}).get_text.strip()
                 items.append(item)
