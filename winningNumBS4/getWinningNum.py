@@ -8,7 +8,7 @@ import re
 from bs4 import BeautifulSoup
 import urllib2
 from mylog import MyLog as mylog
-
+from save2excel import SaveBallData
 
 class DoubleColorBallItem(object):
     date = None         # 开奖日期
@@ -27,7 +27,7 @@ class DoubleColorBallItem(object):
 
 class GetDoubleColorBallNumber(object):
     '''
-    这个类用于获得双色球的中奖号码，返回一个txt文件
+    这个类用于获得双色球的中奖号码，返回一个txt文件,同时将数据保存到excel
     '''
     def __init__(self):
         self.urls = []
@@ -35,6 +35,9 @@ class GetDoubleColorBallNumber(object):
         self.getUrls()
         self.items = self.spider(self.urls)
         self.pipelines(self.items)
+        self.log.info('Start to save data to excel \r\n')
+        SaveBallData(self.items)
+        self.log.info('Finish! \r\n')
 
     def getUrls(self):
         '''
