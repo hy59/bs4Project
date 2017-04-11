@@ -98,7 +98,7 @@ class GetDoubleColorBallNumber(object):
             for item in items:
                 fp.write('%s %s \t %s %s %s %s %s %s %s \t %s \t %s %s \n'
                         %(item.date, item.order, item.red1, item.red2, item.red3,
-                          item.re4, item.red5, item.red6, item.blue,
+                          item.red4, item.red5, item.red6, item.blue,
                           item.money, item.firstPrize, item.secondPrize))
                 self.log.info(u'将日期为: %s 的数据存入"%s"...' %(item.date, fileName.decode('GBK')))
 
