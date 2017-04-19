@@ -10,6 +10,7 @@ import urllib2
 from mylog import MyLog as mylog
 from save2excel import SaveBallData
 
+
 class DoubleColorBallItem(object):
     date = None         # 开奖日期
     order = None        # 开奖期号
